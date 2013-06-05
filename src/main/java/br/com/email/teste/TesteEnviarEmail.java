@@ -3,15 +3,15 @@ package br.com.email.teste;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
+import br.com.email.dto.EmailDTO;
 import br.com.email.service.Email;
 import br.com.email.service.impl.EmailImpl;
-import br.com.email.template.TemplateEmail;
 
 public class TesteEnviarEmail {
 	
 	public static void main(String[] args) {
 
-		TemplateEmail template = new TemplateEmail();
+		EmailDTO template = new EmailDTO();
 		template.setSmtp("smtp.gmail.com");
 		template.setPortaSmtp(587);
 		template.setEmailRemetente("testeRemetente@gmail.com");

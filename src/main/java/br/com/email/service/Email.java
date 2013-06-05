@@ -1,11 +1,17 @@
 package br.com.email.service;
 
-import br.com.email.template.TemplateEmail;
+import java.util.List;
+
+import br.com.email.dto.EmailDTO;
 
 public interface Email {
 
-	public abstract void enviarEmail(TemplateEmail email);
+	public abstract void enviarEmail(EmailDTO email);
 
-	public abstract void enviarEmailHtml(TemplateEmail email);
+	public abstract void enviarEmailHtml(EmailDTO email);
+
+	public abstract void enviarListaEmails(List<EmailDTO> email);
+
+	public abstract void enviarListaEmailsHtml(List<EmailDTO> email);
 
 }

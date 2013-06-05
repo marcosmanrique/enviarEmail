@@ -1,15 +1,16 @@
 package br.com.email.service.impl;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 import org.apache.commons.mail.MultiPartEmail;
 
+import br.com.email.dto.EmailDTO;
 import br.com.email.properties.PropertiesProvider;
 import br.com.email.service.Email;
-import br.com.email.template.TemplateEmail;
 
 public class EmailImpl implements Email {
 	
@@ -23,7 +24,7 @@ public class EmailImpl implements Email {
 		htmlEmail = new HtmlEmail();
 	}
 
-	public void enviarEmail(TemplateEmail templateEmail) {
+	public void enviarEmail(EmailDTO templateEmail) {
 		try {
 			props = PropertiesProvider.getProperties();
 		
@@ -52,7 +53,7 @@ public class EmailImpl implements Email {
 		} 
 	}
 
-	public void enviarEmailHtml(TemplateEmail templateEmail) {
+	public void enviarEmailHtml(EmailDTO templateEmail) {
 		try {
 			props = PropertiesProvider.getProperties();
 		
@@ -78,6 +79,22 @@ public class EmailImpl implements Email {
 			System.out.println(e.getMessage());
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
+		}
+	}
+
+	public void enviarListaEmails(List<EmailDTO> emails) {
+		if (emails != null) {
+			for (EmailDTO templateEmail : emails) {
+				enviarEmail(templateEmail);
+			}
+		}
+	}
+
+	public void enviarListaEmailsHtml(List<EmailDTO> emails) {
+		if (emails != null) {
+			for (EmailDTO templateEmail : emails) {
+				enviarEmailHtml(templateEmail);
+			}
 		}
 	}
 }

@@ -1,11 +1,11 @@
-package br.com.email.template;
+package br.com.email.dto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.mail.internet.InternetAddress;
 
-public class TemplateEmail {
+public class EmailDTO {
 
 	private String smtp;
 
@@ -29,7 +29,7 @@ public class TemplateEmail {
 
 	private List<InternetAddress> emailsDestinatariosEmCopiaOculta;
 
-	public TemplateEmail() {
+	public EmailDTO() {
 		emailsDestinatarios = new ArrayList<InternetAddress>();
 		emailsDestinatariosEmCopia = new ArrayList<InternetAddress>();
 		emailsDestinatariosEmCopiaOculta = new ArrayList<InternetAddress>();
